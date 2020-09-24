@@ -4,7 +4,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 # Create your models here.
 
-class UserProfileManager():
+class UserProfileManager(BaseUserManager):
     """ Manager for Users Profile """
 
     def create_user(self, email, name, password):
@@ -21,7 +21,8 @@ class UserProfileManager():
         # we could use only user.save() but using=self.__db is to specify
         # the db in which the user will be saved in case we are using multiple
         # dbs, self.__db is the standard db.
-        user.save(using=self.__db)
+        #user.save(using=self.__db)
+        user.save()
 
         return user
 
@@ -35,7 +36,8 @@ class UserProfileManager():
         # we could use only user.save() but using=self.__db is to specify
         # the db in which the user will be saved in case we are using multiple
         # dbs, self.__db is the standard db.
-        user.save(using=self.__db)
+        #user.save(using=self.__db)
+        user.save()
 
         return user
 
