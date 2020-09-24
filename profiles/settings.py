@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third parts apps
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # Our Apps
     'profile_api',
 ]
 
@@ -119,3 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# By default Django uses "User" as the User Model
+# We gonna modify this to put as the user model our UserProfile
+AUTH_USER_MODEL='profile_api.UserProfile'
