@@ -8,12 +8,12 @@ from django.conf import settings
 class UserProfileManager(BaseUserManager):
     """ Manager for Users Profile """
 
-    def create_user(self, email, name, lastname, password):
+    def create_user(self, email, name, password):
 
         # normalize the email address passed to the create user function
         email = self.normalize_email(email)
 
-        user = self.model(email=email,name=name,lastname=lastname)
+        user = self.model(email=email,name=name)
 
         # before set the password we need to make sure wont be saved as plain
         # text, so we can use django 'set_password' to make the password a hash
